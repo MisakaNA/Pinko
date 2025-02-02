@@ -201,8 +201,10 @@
             slideWidth = 300
         } else if (window.innerWidth < 768 && window.innerWidth > 576) {
             slideWidth = 500
-        } else if (window.innerWidth < 576) {
-            slideWidth = 300
+        } else if (window.innerWidth < 576 && window.innerWidth > 450) {
+            slideWidth = 400
+        } else if (window.innerWidth < 450) {
+            slideWidth = 340
         } else {
             slideWidth = 500
         }
