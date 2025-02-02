@@ -396,6 +396,12 @@ body {
   }
 }
 
+@media screen and (max-width: 450px) {
+  .blog-slider__pagination {
+    top: 410px;
+  }
+}
+
 
 .blog-slider__pagination.swiper-pagination-bullets .swiper-pagination-bullet {
   margin: 8px 0;
