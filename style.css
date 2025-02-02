@@ -119,13 +119,13 @@ body {
 }
 @media screen and (max-width: 576px) {
   .blog-slider__img {
-    width: 400px;
-    height: 400px;
+    width: 300px;
+    height: 300px;
   }
 
   .avatar-img {
-    width: 400px;
-    height: 400px;
+    width: 300px;
+    height: 300px;
   }
 }
 @media screen and (max-height: 500px) and (min-width: 992px) {
@@ -289,13 +289,13 @@ body {
 @media screen and (max-width: 576px) {
   .sample-slider {
     margin-right: 0;
-    width: 400px;
-    height: 400px;
+    width: 300px;
+    height: 300px;
   }
 
   .sample-slides img {
-    width: 400px;
-    height: 400px;
+    width: 300px;
+    height: 300px;
   }
 }
 @media screen and (max-height: 500px) and (min-width: 992px) {
