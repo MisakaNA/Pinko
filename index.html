@@ -182,13 +182,19 @@
 
     function updateDots() {
         dots.forEach(dot => dot.classList.remove("active"));
-        dots[index - 1].classList.add("active");
+        try {
+            dots[index - 1].classList.add("active");
+        } catch (e) {
+            dots[1].classList.add("active");
+        }
+
     }
 
     function showSlide(n) {
         slides.style.transition = "transform 0.5s ease-in-out";
-        index = n;
+        index = n > total ? 1 : n;
         slides.style.transform = `translateX(${-index * slideWidth}px)`;
+        console.log(index)
         console.log(`translateX(${-index * slideWidth}px)`)
         slides.addEventListener("transitionend", function resetPosition() {
             if (index === total - 1) {
