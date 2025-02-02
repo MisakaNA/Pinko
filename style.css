@@ -396,12 +396,6 @@ body {
   }
 }
 
-@media screen and (max-width: 576px) {
-  .blog-slider__pagination {
-    top: 480px;
-  }
-}
-
 
 .blog-slider__pagination.swiper-pagination-bullets .swiper-pagination-bullet {
   margin: 8px 0;
