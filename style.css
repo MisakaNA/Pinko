@@ -7,7 +7,14 @@ body {
   background-color: #9fffda;
   background-image: linear-gradient(147deg, #9fffda 50%, #1c83de 100%);
   min-height: 100vh;
-  font-family: "Fira Sans", sans-serif;
+  font-family:
+  "Noto Sans CJK SC",        /* Preferred for all platforms */
+  "Source Han Sans SC",      /* Great alternative */
+  "Heiti SC",                /* iOS and macOS */
+  "Microsoft YaHei",         /* Windows */
+  "Droid Sans Fallback",     /* Android */
+  "Arial Unicode MS",        /* Universal fallback */
+  sans-serif;
   display: flex;
 }
 
