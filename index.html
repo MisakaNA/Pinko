@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <title>瓶装型新鲜咸鱼 - Pinko的鱼塘</title>
-    <meta name="baidu-site-verification" content="codeva-7e7jY5PHfs" />
+    <meta name="baidu-site-verification" content="codeva-7e7jY5PHfs"/>
     <link rel="icon" type="image/x-icon" href="assets/favicon.ico">
     <meta name="viewport"
           content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
@@ -23,7 +23,8 @@
                 <img class="avatar-img" src="assets/avatar.jpg" alt="avatar">
             </div>
             <div class="blog-slider__content">
-                <div class="blog-slider__title main-title" style="margin-bottom: 40px; color: #1c83de; font-weight: 900; font-size: 0; font-family: KaiTi,sans-serif">
+                <div class="blog-slider__title main-title"
+                     style="margin-bottom: 40px; color: #1c83de; font-weight: 900; font-size: 0; font-family: KaiTi,sans-serif">
                     <span style="font-size: 20px;">这里是</span>
                     <span style="font-size: 24px; margin-left: 5px; margin-right: 5px">瓶装型新鲜咸鱼</span>
                     <span style="font-size: 20px;">的鱼塘小站！</span>
@@ -46,15 +47,22 @@
             <div class="blog-slider__content">
                 <span class="blog-slider__code" id="fans">“画小孩的概念神”</span>
                 <div class="quote-box">
-                    <p style="margin-top: 10px; margin-bottom: 5px" >这不是画错了，是在探索新的风格。</p>
+                    <p style="margin-top: 10px; margin-bottom: 5px">这不是画错了，是在探索新的风格。</p>
                     <p style="margin-top: 0; text-align: right;">——Pinko</p>
                 </div>
                 <div class="blog-slider__text subscribe">关注瓶装咸鱼喵，关注瓶装咸鱼谢谢喵 (≧∀≦)</div>
-                <!--<a href="bilibili://space.bilibili.com/7785531" class="blog-slider__button" target="_blank" onclick="openBili(event)">B站主页</a>-->
+                <div class="fans">
+                    <button class="add-button" onclick="addFans()">&nbsp;我要关注！</button>
+
+                    <span id="number-container" style="position: relative; height: 50px; margin: 0 70px 0 10px"></span>
+                    <button class="deduct-button" onclick="deductFans()">&nbsp;我要取关？</button>
+                </div>
                 <div style="margin-bottom: 15px;">
                     <a href="https://space.bilibili.com/7785531" class="blog-slider__button" target="_blank">B站主页</a>
                 </div>
-                <a href="https://www.bilibili.com/video/BV1436HYjEt4" class="blog-slider__button" target="_blank" style="width: 300px">查看2024画师年终总结</a>
+
+                <a href="https://www.bilibili.com/video/BV1436HYjEt4" class="blog-slider__button" target="_blank"
+                   style="width: 300px">查看2024画师年终总结</a>
             </div>
         </div>
 
@@ -122,15 +130,15 @@
                 </div>
                 <div class="blog-slider__text order-sites" style="padding-right:37px;">
                     画加
-                    <a href="https://huajia.163.com/main/profile/08nqxj4r" target="_blank"><img class="order-sites-icon"
-                                                                                                src="assets/huajia.ico"
-                                                                                                alt="画加"></a>
+                    <a href="https://huajia.163.com/main/profile/08nqxj4r" target="_blank">
+                        <img class="order-sites-icon" src="assets/huajia.ico" alt="画加">
+                    </a>
                 </div>
                 <div class="blog-slider__text order-sites" style="padding-right:32px; ">
                     Pixiv
-                    <a href="https://www.pixiv.net/users/16305685" target="_blank"><img class="order-sites-icon"
-                                                                                        src="assets/pixiv.ico"
-                                                                                        alt="Pixiv"></a>
+                    <a href="https://www.pixiv.net/users/16305685" target="_blank">
+                        <img class="order-sites-icon" src="assets/pixiv.ico" alt="Pixiv">
+                    </a>
                 </div>
             </div>
         </div>
@@ -158,107 +166,5 @@
 <script src='https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js'></script>
 <script src='https://cdnjs.cloudflare.com/ajax/libs/Swiper/4.3.5/js/swiper.min.js'></script>
 <script src="./script.js"></script>
-<script>
-    const slides = document.querySelector(".sample-slides");
-    const images = document.querySelectorAll(".sample-slides img");
-    const total = images.length;
-    let slideWidth = 500;
-
-    let index = 1; // 初始位置在真正的第一张
-    let autoPlayInterval;
-
-    // 初始化指示器
-    const dotsContainer = document.querySelector(".dots");
-    for (let i = 0; i < total - 2; i++) {
-        let dot = document.createElement("div");
-        dot.classList.add("dot");
-        if (i === 0) dot.classList.add("active");
-        dot.addEventListener("click", () => goToSlide(i + 1));
-        dotsContainer.appendChild(dot);
-    }
-    const dots = document.querySelectorAll(".dot");
-
-    // 设置初始位置
-    slides.style.transform = `translateX(${-index * slideWidth}px)`;
-
-    function updateDots() {
-        dots.forEach(dot => dot.classList.remove("active"));
-        try {
-            dots[index - 1].classList.add("active");
-        } catch (e) {
-            dots[1].classList.add("active");
-        }
-
-    }
-
-    function showSlide(n) {
-        slides.style.transition = "transform 0.5s ease-in-out";
-        index = n > total ? 1 : n;
-        slides.style.transform = `translateX(${-index * slideWidth}px)`;
-        console.log(index)
-        console.log(`translateX(${-index * slideWidth}px)`)
-        slides.addEventListener("transitionend", function resetPosition() {
-            if (index === total - 1) {
-                slides.style.transition = "none";
-                index = 1;
-                slides.style.transform = `translateX(${-index * slideWidth}px)`;
-            } else if (index === 0) {
-                slides.style.transition = "none";
-                index = total - 2;
-                slides.style.transform = `translateX(${-index * slideWidth}px)`;
-            }
-            updateDots();
-            slides.removeEventListener("transitionend", resetPosition);
-        });
-    }
-
-    function goToSlide(n) {
-        clearInterval(autoPlayInterval);
-        showSlide(n);
-        startAutoPlay();
-    }
-
-    document.querySelector(".prev").addEventListener("click", () => goToSlide(index - 1));
-    document.querySelector(".next").addEventListener("click", () => goToSlide(index + 1));
-
-    // 自动轮播
-    function startAutoPlay() {
-        autoPlayInterval = setInterval(() => {
-            showSlide(index + 1);
-        }, 3000);
-    }
-
-    function updateSlideWidth() {
-        if (window.innerWidth < 1150 && window.innerWidth > 768) {
-            console.log(window.innerWidth)
-            slideWidth = 300
-        } else if (window.innerWidth < 768 && window.innerWidth > 576) {
-            slideWidth = 500
-        } else if (window.innerWidth < 576 && window.innerWidth > 450) {
-            slideWidth = 400
-        } else if (window.innerWidth < 450) {
-            slideWidth = 340
-        } else {
-            slideWidth = 500
-        }
-    }
-
-    updateSlideWidth()
-    startAutoPlay();
-    window.addEventListener("resize", updateSlideWidth);
-</script>
-<!--<script>
-    function openBili(event) {
-        event.preventDefault(); // 防止默认跳转
-        const appUrl = "bilibili://space/7785531";
-        const webUrl = "https://space.bilibili.com/7785531"; // 备用网页版
-
-        window.location.href = appUrl;
-
-        setTimeout(() => {
-            window.location.href = webUrl;
-        }, 2000); // 2 秒后跳转网页，防止 App 未安装时无反应
-    }
-</script>-->
 </body>
 </html>
