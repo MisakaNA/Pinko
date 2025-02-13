@@ -24,7 +24,6 @@ var swiper = new Swiper('.blog-slider', {
     },
     on: {
         slideChange: function () {
-            console.log('change')
             if (animationFrame) {
                 cancelAnimationFrame(animationFrame);
             }
@@ -39,7 +38,6 @@ var swiper = new Swiper('.blog-slider', {
                 const img = activeSlide.querySelector('#qrImage');
 
                 if (!canvas || !ctx || !img) {
-                    console.warn('当前 Slide 没有找到 qrcode 相关元素');
                     return;
                 }
 
@@ -94,7 +92,6 @@ function showSlide(n) {
     slides.style.transition = "transform 0.5s ease-in-out";
     index = n > total ? 1 : n;
     slides.style.transform = `translateX(${-index * slideWidth}px)`;
-    console.log(`translateX(${-index * slideWidth}px)`)
     slides.addEventListener("transitionend", function resetPosition() {
         if (index === total - 1) {
             slides.style.transition = "none";
@@ -287,7 +284,6 @@ fetch(apiUrl, {
     .then(res => res.json())
     .then(
         (result) => {
-            console.log(result['fans']);
             real_fans = result['fans']
         }
     )
