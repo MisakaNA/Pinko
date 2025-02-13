@@ -162,7 +162,7 @@ function isLocatorArea(x, y) {
     return locators.some(loc => Math.sqrt((x - loc.x) ** 2 + (y - loc.y) ** 2) < locatorRadius);
 }
 
-// 更新二维码点的函数
+// 更新二维码点
 function updateQRDots(qrDots, ctx) {
     qrDots.forEach(dot => {
         dot.vx += (dot.origX - dot.x) * 0.05;
@@ -241,7 +241,6 @@ function updateSlideWidth() {
 function handleResize() {
     updateSlideWidth();
 
-    // 在resize时只调用createDotsFromImage
     const activeSlide = document.querySelector('.swiper-slide-active');
 
     if (activeSlide) {
@@ -272,7 +271,7 @@ function handleResize() {
 updateSlideWidth();
 startAutoPlay();
 
-// 只在 resize 时更新尺寸和二维码图案
+
 window.addEventListener("resize", handleResize);
 
 
