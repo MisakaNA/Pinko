@@ -83,6 +83,11 @@ body {
     overflow: hidden;
 }
 
+.group_qr {
+    width: 500px;
+    height: 500px;
+}
+
 .group_title {
     width: 340px;
     height: 100px;
@@ -104,6 +109,11 @@ body {
         width: 304px;
         height: 80px;
     }
+
+    .group_qr {
+        width: 300px;
+        height: 300px;
+    }
 }
 
 @media screen and (max-width: 823px) {
@@ -122,6 +132,11 @@ body {
         width: 340px;
         height: 100px;
     }
+
+    .group_qr {
+        width: 500px;
+        height: 500px;
+    }
 }
 
 @media screen and (max-width: 576px) {
@@ -134,6 +149,11 @@ body {
         width: 400px;
         height: 400px;
     }
+
+    .group_qr {
+        width: 400px;
+        height: 400px;
+    }
 }
 
 @media screen and (max-width: 450px) {
@@ -143,6 +163,11 @@ body {
     }
 
     .avatar-img {
+        width: 340px;
+        height: 340px;
+    }
+
+    .group_qr {
         width: 340px;
         height: 340px;
     }
